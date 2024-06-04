@@ -1,0 +1,48 @@
+using System;
+
+namespace ArrayOperations
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a. Tính tổng các số nguyên không dấu kích thước 2 byte trong mảng:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            int n = int.Parse(Console.ReadLine());
+            ushort[] arr = new ushort[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr[i] = ushort.Parse(Console.ReadLine());
+            }
+
+            ushort sum_a = 0;
+            foreach (ushort num in arr)
+            {
+                sum_a += num;
+            }
+
+            Console.WriteLine($"Tổng các số nguyên không dấu: {sum_a}");
+
+            Console.WriteLine("\nb. Tính tổng các số nguyên có dấu kích thước 2 byte trong mảng:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            n = int.Parse(Console.ReadLine());
+            short[] arr_signed = new short[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr_signed[i] = short.Parse(Console.ReadLine());
+            }
+
+            short sum_b = 0;
+            foreach (short num in arr_signed)
+            {
+                sum_b += num;
+            }
+
+            Console.WriteLine($"Tổng các số nguyên có dấu: {sum_b}");
+        }
+    }
+}
