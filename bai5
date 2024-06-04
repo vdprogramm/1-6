@@ -1,0 +1,49 @@
+using System;
+
+namespace MinMaxAndArraySum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // a. Tìm giá trị lớn nhất và nhỏ nhất trong mảng
+            Console.WriteLine("a. Tìm giá trị lớn nhất và nhỏ nhất trong mảng:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            int n = int.Parse(Console.ReadLine());
+            float[] arr = new float[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr[i] = float.Parse(Console.ReadLine());
+            }
+
+            float min = arr[0];
+            float max = arr[0];
+
+            foreach (float num in arr)
+            {
+                if (num < min)
+                {
+                    min = num;
+                }
+                if (num > max)
+                {
+                    max = num;
+                }
+            }
+
+            Console.WriteLine($"Giá trị nhỏ nhất: {min}");
+            Console.WriteLine($"Giá trị lớn nhất: {max}");
+
+            // b. Tính tổng các số thực kích thước 4 byte trong mảng
+            Console.WriteLine("\nb. Tính tổng các số thực kích thước 4 byte trong mảng:");
+            float sum = 0;
+            foreach (float num in arr)
+            {
+                sum += num;
+            }
+            Console.WriteLine($"Tổng các số thực: {sum}");
+        }
+    }
+}
