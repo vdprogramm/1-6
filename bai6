@@ -1,0 +1,48 @@
+using System;
+
+namespace ArrayOperations
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a. Tính trung bình cộng của các số trong mảng:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            int n = int.Parse(Console.ReadLine());
+            double[] arr = new double[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr[i] = double.Parse(Console.ReadLine());
+            }
+
+            double sum = 0;
+            foreach (double num in arr)
+            {
+                sum += num;
+            }
+            double average = sum / n;
+            Console.WriteLine($"Trung bình cộng của các số trong mảng: {average}");
+
+            Console.WriteLine("\nb. Tìm giá trị lớn nhất và nhỏ nhất trong mảng:");
+            double min = arr[0];
+            double max = arr[0];
+
+            foreach (double num in arr)
+            {
+                if (num < min)
+                {
+                    min = num;
+                }
+                if (num > max)
+                {
+                    max = num;
+                }
+            }
+
+            Console.WriteLine($"Giá trị nhỏ nhất: {min}");
+            Console.WriteLine($"Giá trị lớn nhất: {max}");
+        }
+    }
+}
