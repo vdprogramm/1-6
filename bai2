@@ -1,0 +1,81 @@
+using System;
+
+namespace NumberOperations
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a. Tìm số lớn nhất và nhỏ nhất trong dãy số nguyên có dấu kích thước 1 byte:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            int n = int.Parse(Console.ReadLine());
+            sbyte[] arr = new sbyte[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr[i] = sbyte.Parse(Console.ReadLine());
+            }
+
+            sbyte min = arr[0];
+            sbyte max = arr[0];
+
+            foreach (sbyte num in arr)
+            {
+                if (num < min)
+                    min = num;
+                if (num > max)
+                    max = num;
+            }
+
+            Console.WriteLine($"Số nhỏ nhất: {min}");
+            Console.WriteLine($"Số lớn nhất: {max}");
+
+            Console.WriteLine("\nb. Tính tổng các số chẵn trong dãy số nguyên có dấu kích thước 1 byte:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            n = int.Parse(Console.ReadLine());
+            arr = new sbyte[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr[i] = sbyte.Parse(Console.ReadLine());
+            }
+
+            int sum = 0;
+            foreach (sbyte num in arr)
+            {
+                if (num % 2 == 0)
+                    sum += num;
+            }
+
+            Console.WriteLine($"Tổng các số chẵn: {sum}");
+
+            Console.WriteLine("\nc. Tính tổng của các số từ 1 đến n, với n là số nguyên không dấu kích thước 1 byte:");
+            Console.Write("Nhập số nguyên n không dấu: ");
+            byte n_byte = byte.Parse(Console.ReadLine());
+
+            uint sum_c = 0;
+            for (byte i = 1; i <= n_byte; i++)
+            {
+                sum_c += i;
+            }
+
+            Console.WriteLine($"Tổng các số từ 1 đến {n_byte}: {sum_c}");
+
+            // d. Tính tổng các chữ số trong số nguyên không dấu kiểu byte
+            Console.WriteLine("\nd. Tính tổng các chữ số trong số nguyên không dấu kiểu byte:");
+            Console.Write("Nhập số nguyên không dấu kiểu byte: ");
+            byte num = byte.Parse(Console.ReadLine());
+
+            byte sum_d = 0;
+            while (num > 0)
+            {
+                sum_d += (byte)(num % 10);
+                num /= 10;
+            }
+
+            Console.WriteLine($"Tổng các chữ số: {sum_d}");
+        }
+    }
+}
