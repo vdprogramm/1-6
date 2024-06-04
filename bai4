@@ -1,0 +1,56 @@
+using System;
+
+namespace PalindromeAndArraySum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a. Kiểm tra số Palindrome:");
+            Console.Write("Nhập số nguyên không dấu kích thước 8 byte: ");
+            ulong num = ulong.Parse(Console.ReadLine());
+
+            if (IsPalindrome(num))
+            {
+                Console.WriteLine($"{num} là số Palindrome.");
+            }
+            else
+            {
+                Console.WriteLine($"{num} không phải là số Palindrome.");
+            }
+            Console.WriteLine("\nb. Tính tổng các số nguyên có dấu kích thước 8 byte trong mảng:");
+            Console.Write("Nhập số phần tử của mảng: ");
+            int n = int.Parse(Console.ReadLine());
+            long[] arr = new long[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Nhập phần tử thứ {i + 1}: ");
+                arr[i] = long.Parse(Console.ReadLine());
+            }
+
+            long sum = 0;
+            foreach (long num_b in arr)
+            {
+                sum += num_b;
+            }
+
+            Console.WriteLine($"Tổng các số nguyên có dấu: {sum}");
+        }
+
+        static bool IsPalindrome(ulong num)
+        {
+            ulong originalNum = num;
+            ulong reversedNum = 0;
+
+            while (num > 0)
+            {
+                ulong digit = num % 10;
+                reversedNum = reversedNum * 10 + digit;
+                num /= 10;
+            }
+
+            return originalNum == reversedNum;
+        }
+    }
+}
